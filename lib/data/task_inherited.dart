@@ -8,27 +8,11 @@ class TaskInherited extends InheritedWidget {
   }) : super(key: key, child: child);
 
   final List<Tasks> taskList = [
-    Tasks(
-        'Learn Flutter in the morning',
-        'https://cursos.alura.com.br/course/flutter-controller-navegacao-estados/task/109284',
-        3),
-    Tasks(
-        'Run Bike',
-        'https://tswbike.com/wp-content/uploads/2020/09/108034687_626160478000800_2490880540739582681_n-e1600200953343.jpg',
-        2),
-    Tasks(
-        'Meditate',
-        'https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg',
-        5),
-    Tasks(
-        'Read books',
-        'https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg',
-        4),
-     Tasks(
-      'Play games',
-      'https://i.ibb.co/tB29PZB/kako-epifania-2022-2-c-pia.jpg',
-      1,
-    ),
+    Tasks('Aprender Flutter', 'assets/images/flutter.png', 3),
+    Tasks('Andar de Bike', 'assets/images/bike.webp', 2),
+    Tasks('Meditar', 'assets/images/meditar.jpeg', 5),
+    Tasks('Ler', 'assets/images/ler.jpg', 4),
+    Tasks('Jogar', 'assets/images/jogar.jpg', 1),
   ];
 
   void newTask(String name, String photo, int difficulty){
@@ -37,7 +21,7 @@ class TaskInherited extends InheritedWidget {
 
   static TaskInherited of(BuildContext context) {
     final TaskInherited? result = context.dependOnInheritedWidgetOfExactType<TaskInherited>();
-    assert(result != null, 'No TaskInherited found in context');
+    // assert(result != null, 'No TaskInherited found in context');
     return result!;
   }
 

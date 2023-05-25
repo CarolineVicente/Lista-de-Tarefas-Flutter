@@ -1,4 +1,3 @@
-
 import 'package:alura_flutter_curso_1/components/difficulty.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +15,13 @@ class Tasks extends StatefulWidget {
 
 class _TasksState extends State<Tasks> {
   int level = 1;
+
+  bool assetOrNetwork() {
+    if (widget.foto.contains('http')) {
+      return false;
+    }
+    return true;
+  }
 
   void levelUp() {
     setState(() {
@@ -57,12 +63,19 @@ class _TasksState extends State<Tasks> {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
-                          child: Image.asset(
-                            widget.foto,
-                            height: 100,
-                            width: 72,
-                            fit: BoxFit.cover,
-                          ),
+                          child: assetOrNetwork()
+                              ? Image.asset(
+                                  widget.foto,
+                                  height: 100,
+                                  width: 72,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.network(
+                                  widget.foto,
+                                  fit: BoxFit.cover,
+                                  height: 100,
+                                  width: 72,
+                                ),
                         ),
                       ),
                       Column(
